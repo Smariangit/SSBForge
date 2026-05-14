@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Current Affairs - SSBForge</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">SSB<span>FORGE</span></a>
+    <div class="nav-links" id="navLinks"></div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </div>
+</nav>
+
+<main id="premiumPageContent" class="current-affairs-page">
+  <section class="ca-hero">
+    <span class="section-label">DAILY BRIEFING</span>
+    <h1>Current Affairs</h1>
+    <p>An officer is a scholar of the world before a master of the sword.</p>
+  </section>
+
+  <div class="ca-category-bar">
+    <div class="ca-category-tabs" id="caCategoryTabs"></div>
+  </div>
+
+  <section class="premium-preview-zone ca-shell">
+    <div id="caLoading" class="ca-loading">Loading current affairs...</div>
+    <div id="caEmpty" class="ca-empty hidden">No current affairs available yet.</div>
+
+    <div id="caDayFrame" class="ca-day-frame hidden">
+      <div class="ca-date-controls">
+        <button class="ctrl-btn" id="caPrevDate" type="button">&#9664; Previous Date</button>
+        <div class="ca-jump-control">
+          <select id="caDateJump"></select>
+        </div>
+        <button class="ctrl-btn" id="caNextDate" type="button">Next Date &#9654;</button>
+      </div>
+      <div class="ca-day-stack-wrap">
+        <div class="ca-day-meta" id="caDayMeta">Loading...</div>
+        <div class="ca-day-stack" id="caDayStack"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">x</button>
+    <h2>Login to SSBForge</h2>
+    <input type="email" id="loginEmail" placeholder="Email" class="modal-input" />
+    <input type="password" id="loginPassword" placeholder="Password" class="modal-input" />
+    <button class="btn-primary full-width" id="doLogin">Login</button>
+    <div class="modal-divider">or</div>
+    <button class="btn-outline full-width" id="goRegister">Create Free Account</button>
+  </div>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/premium-gate.js"></script>
+<script src="js/current-affairs-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+const CAT_COLORS = {
+  defence: 'var(--red-accent)',
+  geopolitical: '#2b6cb0',
+  geopolitics: '#2b6cb0',
+  national: 'var(--success)',
+  economy: '#b7791f',
+  environment: '#2f855a',
+  technology: '#553c9a',
+  social: '#9f7aea',
+  sports: '#dd6b20',
+  default: 'var(--gold)'
+};
+
+let allSummaries = [];
+let summariesByDate = new Map();
+let orderedDates = [];
+let activeDateIndex = 0;
+let activeCategory = 'all';
+
+function parseLabelDate(label) {
+  const time = Date.parse(label || '');
+  return Number.isNaN(time) ? 0 : time;
+}
+
+function normalizeCategory(category) {
+  return String(category || 'general').trim().toLowerCase();
+}
+
+async function loadCurrentAffairs() {
+  try {
+    let items = [];
+
+    if (window.location.protocol !== 'file:') {
+      const resp = await fetch('content/current-affairs/index.json', { cache: 'no-store' });
+      if (!resp.ok) throw new Error('Current affairs index not found');
+      items = await resp.json();
+    } else {
+      items = Array.isArray(window.CURRENT_AFFAIRS_DATA) ? window.CURRENT_AFFAIRS_DATA : [];
+    }
+
+    if (!Array.isArray(items) || !items.length) throw new Error('No current affairs data');
+
+    allSummaries = items.slice().sort((a, b) => parseLabelDate(b.label) - parseLabelDate(a.label));
+    buildDateGroups(allSummaries);
+    renderCategoryTabs();
+    renderDateJump();
+    document.getElementById('caLoading').classList.add('hidden');
+    document.getElementById('caDayFrame').classList.remove('hidden');
+    renderActiveDate();
+  } catch (error) {
+    console.error('Current affairs load failed:', error);
+    document.getElementById('caLoading').classList.add('hidden');
+    document.getElementById('caEmpty').classList.remove('hidden');
+  }
+}
+
+function buildDateGroups(items) {
+  summariesByDate = new Map();
+  items.forEach(item => {
+    const label = item.label || 'Undated';
+    if (!summariesByDate.has(label)) summariesByDate.set(label, []);
+    summariesByDate.get(label).push(item);
+  });
+
+  orderedDates = Array.from(summariesByDate.keys()).sort((a, b) => parseLabelDate(b) - parseLabelDate(a));
+  activeDateIndex = 0;
+}
+
+function renderDateJump() {
+  const select = document.getElementById('caDateJump');
+  select.innerHTML = '';
+
+  orderedDates.forEach((label, index) => {
+    const option = document.createElement('option');
+    option.value = String(index);
+    option.textContent = label;
+    select.appendChild(option);
+  });
+
+  select.value = String(activeDateIndex);
+}
+
+function renderCategoryTabs() {
+  const tabs = document.getElementById('caCategoryTabs');
+  const categories = ['all', ...new Set(allSummaries.map(item => normalizeCategory(item.category)))];
+  tabs.innerHTML = '';
+
+  categories.forEach(category => {
+    const btn = document.createElement('button');
+    btn.className = 'module-tab' + (category === activeCategory ? ' active' : '');
+    btn.type = 'button';
+    btn.textContent = category === 'all' ? 'All' : category.replace(/\b\w/g, char => char.toUpperCase());
+    btn.addEventListener('click', () => {
+      activeCategory = category;
+      document.querySelectorAll('#caCategoryTabs .module-tab').forEach(tab => tab.classList.remove('active'));
+      btn.classList.add('active');
+      renderActiveDate();
+    });
+    tabs.appendChild(btn);
+  });
+}
+
+function renderActiveDate() {
+  if (!orderedDates.length) return;
+
+  const dateLabel = orderedDates[activeDateIndex];
+  const jump = document.getElementById('caDateJump');
+  if (jump) jump.value = String(activeDateIndex);
+  const dayItems = summariesByDate.get(dateLabel) || [];
+  const filtered = activeCategory === 'all'
+    ? dayItems
+    : dayItems.filter(item => normalizeCategory(item.category) === activeCategory);
+
+  const stack = document.getElementById('caDayStack');
+  const meta = document.getElementById('caDayMeta');
+  stack.innerHTML = '';
+  meta.textContent = dateLabel + ' | ' + filtered.length + (filtered.length === 1 ? ' story' : ' stories');
+
+  if (!filtered.length) {
+    stack.innerHTML = '<div class="ca-empty-inline">No stories in this category for this date.</div>';
+    return;
+  }
+
+  filtered.forEach(item => stack.appendChild(createNewsCard(item, dateLabel)));
+}
+
+function createNewsCard(item, dateLabel) {
+  const category = normalizeCategory(item.category);
+  const color = CAT_COLORS[category] || CAT_COLORS.default;
+  const card = document.createElement('article');
+  card.className = 'ca-news-card';
+  card.style.setProperty('--ca-accent', color);
+  card.innerHTML = `
+    <div class="ca-card-meta">
+      <span>${dateLabel}</span>
+      <span>${item.category || 'General'}</span>
+    </div>
+    <h2>${item.headline || 'Untitled update'}</h2>
+    <p>${item.summary || ''}</p>
+  `;
+  return card;
+}
+
+function moveDate(direction) {
+  if (!orderedDates.length) return;
+  activeDateIndex = (activeDateIndex + direction + orderedDates.length) % orderedDates.length;
+  renderActiveDate();
+}
+
+document.getElementById('caPrevDate').addEventListener('click', () => moveDate(-1));
+document.getElementById('caNextDate').addEventListener('click', () => moveDate(1));
+document.getElementById('caDateJump').addEventListener('change', event => {
+  activeDateIndex = Number(event.target.value) || 0;
+  renderActiveDate();
+});
+
+PremiumGate.requireAccess({ pageName: 'Current Affairs', contentId: 'premiumPageContent' });
+loadCurrentAffairs();
+</script>
+</body>
+</html>
