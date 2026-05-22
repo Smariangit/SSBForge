@@ -1,128 +1,191 @@
 [
   {
-    "label": "May 1, 2026",
+    "label": "May 22, 2026",
+    "category": "Economy",
+    "headline": "West Asia crisis hurting Indian tea exporters",
+    "summary": "The ongoing crisis in West Asia is negatively affecting Indian tea exporters, particularly from North Indian regions like Assam and West Bengal. India exported a significant 280.4 million kg of tea in 2025, valued at ₹8,488 crore, with a substantial portion destined for West Asia. This geopolitical instability poses a challenge to India's agricultural exports and economic stability.",
+    "gd_angle": "Geopolitical events, economic impact, supply chain resilience, India's export diversification strategy;"
+  },
+  {
+    "label": "May 22, 2026",
     "category": "Geopolitics",
-    "headline": "Iran hardens nuclear and maritime posture",
-    "summary": "Iran announced it will safeguard its nuclear and missile capabilities while introducing new control frameworks over the Strait of Hormuz. The move follows continued U.S. naval blockade pressure linked to nuclear negotiations. Strait of Hormuz remains a global energy chokepoint with strategic implications for oil supply, maritime security, and West Asia stability."
+    "headline": "Rubio denounces NATO refusal to help on Iran ahead of alliance talks",
+    "summary": "Senator Rubio criticized NATO's unwillingness to address the Iran situation before upcoming alliance talks, highlighting potential rifts within the bloc. This comes after the Trump administration's decision to withdraw 5,000 troops from Germany, further complicating transatlantic security dynamics. The incident underscores ongoing tensions regarding collective security responses to global threats.",
+    "gd_angle": "International alliances, geopolitical fault lines, regional security challenges, India's perspective on global power dynamics;"
   },
   {
-    "label": "May 1, 2026",
+    "label": "May 22, 2026",
+    "category": "Geopolitics",
+    "headline": "Trump returns to more definitive tone on controlling Iran's uranium",
+    "summary": "Former President Donald Trump has adopted a more assertive stance on controlling Iran's uranium enrichment program. This shift indicates a potential re-evaluation of US policy towards Iran's nuclear ambitions. Such developments carry significant implications for regional stability in West Asia and international non-proliferation efforts.",
+    "gd_angle": "Nuclear proliferation, international diplomacy, West Asian security, India's energy security implications;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "Environment policy",
+    "headline": "Supreme Court declines to interfere with forest clearances for Adani’s Madhya Pradesh coal block project",
+    "summary": "The Supreme Court has upheld the environmental clearances for the Adani Group's coal block project in Madhya Pradesh's Singrauli district. The court cited delays in challenging the approvals, dismissing a plea by an environmental activist. This decision balances industrial development and environmental concerns, emphasizing timely legal challenges in such matters.",
+    "gd_angle": "Sustainable development, environment vs. economy debate, judicial activism, India's energy policy;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "Constitutional reforms",
+    "headline": "Sedition trials can go on if accused is willing: Supreme Court",
+    "summary": "The Supreme Court has allowed sedition trials under Section 124A IPC to proceed if the accused consents, four years after pausing such trials. The previous hold was to permit the government to re-examine the colonial-era provision. This ruling navigates the balance between national security and individual liberties, signaling potential judicial re-evaluation while awaiting legislative action.",
+    "gd_angle": "Freedom of speech, national security, constitutional validity of sedition law, judicial interpretation of archaic laws;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "Geopolitics",
+    "headline": "Bangladesh-China talks underway for Tarique Rahman’s first foreign visit",
+    "summary": "Bangladesh Prime Minister Tarique Rahman is reportedly planning his first foreign visit to China, with discussions underway for high-level meetings with Chinese President Xi Jinping and Premier Li Keqiang. This potential visit highlights China's growing influence in South Asia and Bangladesh's foreign policy alignments. Such engagements are significant for regional geopolitical dynamics and India's neighbourhood strategy.",
+    "gd_angle": "Neighbourhood diplomacy, China's growing influence, regional power dynamics, India's strategic response in South Asia;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "PM diplomacy",
+    "headline": "Take forward reforms, PM tells Ministers",
+    "summary": "Prime Minister Narendra Modi chaired a meeting with his full Council of Ministers, emphasizing the government's continued commitment to its reform agenda. This directive comes amidst a dynamic global geopolitical landscape. The PM stressed the importance of driving forward key policy changes to adapt to evolving international challenges and opportunities.",
+    "gd_angle": "Governance and policy reforms, economic development strategy, India's response to global changes, strategic leadership;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "Constitutional reforms",
+    "headline": "Ladakh leaders to meet Home Ministry officials on May 22, Sonam Wangchuk part of delegation",
+    "summary": "Ladakh's political leaders, including Sonam Wangchuk, are set to meet Home Ministry officials to discuss the region's demands for constitutional safeguards. This follows the recent notification of five new districts in Ladakh, a move that aims to address administrative needs but also raises concerns about political representation. The talks are crucial for ensuring the region's long-term stability and development.",
+    "gd_angle": "Federalism and regional autonomy, constitutional safeguards for tribal areas, border area development, national integration;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "Governance",
+    "headline": "Manipur DGP moved to Cabinet Secretariat",
+    "summary": "Manipur's DGP, Rajiv Singh, IPS, has been appointed as Secretary (Security) in the Cabinet Secretariat by the ACC. This significant high-level administrative change follows a period of President's Rule in Manipur and concentrated efforts against extortionists. The appointment reflects a strategic reshuffling in national security administration.",
+    "gd_angle": "Internal security challenges, administrative reforms, role of bureaucracy in governance, Centre-State relations;"
+  },
+  {
+    "label": "May 22, 2026",
+    "category": "Constitutional reforms",
+    "headline": "Ladakh seeks belonging through representation",
+    "summary": "Ladakh is advocating for stronger constitutional safeguards, such as a legislature or Sixth Schedule status, to ensure a greater sense of belonging and representation. This demand comes amidst the Home Ministry's proposal for more districts instead. The region holds significant economic potential, with substantial investments and annual income generation, highlighting the importance of its governance model for national development and security.",
+    "gd_angle": "Federalism and regional autonomy, constitutional safeguards for tribal areas, border area development, national integration and inclusive growth;"
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "Major sports wins",
+    "headline": "Hockey coach Baldev Singh to be honoured with Padma Shri",
+    "summary": "Hockey coach Baldev Singh, who developed elite hockey talent in Shahabad Markanda, will be conferred the prestigious Padma Shri by President Droupadi Murmu on May 25. This honour recognizes his significant contributions to Indian hockey and sports development.",
+    "gd_angle": "Recognition for contributions to sports, promoting national sporting excellence, and the importance of grassroots development in athletics."
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "Geopolitics",
+    "headline": "Myanmar military claims recapture of Thai border town",
+    "summary": "Myanmar's military claimed to have recaptured a town on the Thai border, expanding the frontier trade crossings it controls amid a grinding civil war. This move is significant for regional stability and border dynamics.",
+    "gd_angle": "Geopolitical stability in Southeast Asia, border security implications for neighbouring countries, regional conflicts and their impact on trade and security, and India's neighbourhood policy awareness."
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "Geopolitics",
+    "headline": "No double standards, we condemn Russia, U.S. and Israel for international law violations: Norway’s Foreign Minister",
+    "summary": "Norway's Foreign Minister stated a policy of condemning international law violations by all nations, including Russia, the U.S., and Israel, without double standards. This position highlights a principled approach to international relations.",
+    "gd_angle": "International relations, adherence to international law, human rights, global governance, and India's stance on neutrality and international norms."
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "PM diplomacy",
+    "headline": "PM busy handing out candies in Italy amid economic storm at home, says Congress",
+    "summary": "Prime Minister Narendra Modi was in Italy, while the Congress criticized his government over inflation, unemployment, and weakening economic indicators. The opposition accused the government of pursuing publicity amidst domestic economic challenges.",
+    "gd_angle": "PM diplomacy and its role in enhancing India's global image, challenges of managing domestic economic issues while engaging in international relations, and political discourse surrounding governance and economic performance."
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "Environment policy",
+    "headline": "Boosting climate action in Tamil Nadu",
+    "summary": "Tamil Nadu has launched a State-owned Green Climate Fund with a ₹1,000 crore corpus to support clean energy, mobility, and water security. The state plans a dedicated climate budget of ₹3,000 crore, aiming for 100% renewable energy and expanded EV infrastructure by 2031.",
+    "gd_angle": "Sustainable development, climate change mitigation strategies at the state level, importance of green financing, and India's commitment to achieving environmental goals."
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "Geopolitics",
+    "headline": "Iran examining U.S. proposal, as Trump says in ‘final stages’ of talks",
+    "summary": "Iran is examining the latest U.S. proposal as former President Trump indicated being in the 'final stages' of talks. This suggests potential developments in the ongoing negotiations between the two nations.",
+    "gd_angle": "International relations, nuclear diplomacy, stability in West Asia, and implications for India's energy security and geopolitical interests in the region."
+  },
+  {
+    "label": "May 21, 2026",
+    "category": "Defence",
+    "headline": "In ‘Naxal-free’ Bastar, Amit Shah lays out development blueprint for road ahead",
+    "summary": "Union Home Minister Amit Shah visited Chhattisgarh's Bastar region, marking the symbolic conclusion of the 'Naxal Mukt Bharat' mission. He laid out a development blueprint, proclaiming India free from Naxalism after decades of conflict.",
+    "gd_angle": "Internal security challenges, strategies for counter-insurgency and Naxalism, the role of security forces in maintaining peace, national development in conflict-affected areas, and governance reforms."
+  },
+  {
+    "label": "May 20, 2026",
+    "category": "Constitutional reforms",
+    "headline": "Any step towards closing Tasmac shops is only welcome: HC",
+    "summary": "The Madurai Bench of the Madras High Court on Wednesday while disposing of petitions filed by land owners and persons holding licence to sell snacks at Tasmac shops seeking a direction to forbear the authorities from closing the shops, said the court will not consider the doctrine of legitimate expectation as in ordinary commerce since the business itself is considered to be harmful to public health and public welfare. The court said Article 47 of the Constitution under the Directive Principles of State Policy states the State shall endeavour to bring about prohibition of the consumption except for medicinal purposes of intoxicating drinks and of drugs which are injurious to health.",
+    "gd_angle": "Constitutional values, public welfare, state policy."
+  },
+  {
+    "label": "May 20, 2026",
     "category": "Economy",
-    "headline": "Centre warns debt-heavy States on fiscal stress",
-    "summary": "Finance Ministry's April Economic Review warns revenue-deficit States may struggle during fiscal shocks arising from global crises like West Asia tensions. Nine major States project deficits for FY 2026-27. High debt servicing and interest burdens may force cuts in developmental expenditure or dependence on central support."
+    "headline": "AIKKMS urges Centre to withdraw VB-G RAM-G Act, continue earlier scheme",
+    "summary": "Members of the All India Kisan Khet Mazdoor Sanghatan (AIKKMS) on Tuesday submitted a memorandum to the President and the Chief Minister through the Chief Executive Officer of the Kalaburagi Zilla Panchayat demanding withdrawal of the proposed Viksit Bharat Guarantee for Rozgar and Ajeevik Mission (Gramin) (VB-G RAM-G) Act 2025 and continuation of the erstwhile Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA). In the memorandum, the organisation has urged the governments to enhance guaranteed employment under the NREGA from 100 human workdays to 200 human workdays a year and ensure a daily wage of ₹600 for workers.",
+    "gd_angle": "Socio-economic policy, rural development, public welfare."
   },
   {
-    "label": "May 1, 2026",
-    "category": "Defence",
-    "headline": "Mizoram officially declared insurgency-free",
-    "summary": "Mizoram CM announced the end of insurgency after 43 members of HPC(D), the last active insurgent faction, surrendered arms following a peace accord. The development strengthens Defence in the Northeast and reflects successful conflict resolution through political negotiation."
+    "label": "May 20, 2026",
+    "category": "Environment policy",
+    "headline": "NAPM demands moratorium on punitive enforcement during heat wave",
+    "summary": "The National Alliance of People’s Movements strongly demanded an immediate moratorium on all eviction drives, livelihood confiscations and punitive enforcement actions against informal workers during peak summer months and heat wave periods.",
+    "gd_angle": "Climate resilience, social equity, worker protection."
   },
   {
-    "label": "May 1, 2026",
-    "category": "Defence",
-    "headline": "Maoist-hit Gadchiroli sees strategic connectivity push",
-    "summary": "Security forces established new police outposts, road connectivity, water National, and future telecom expansion in remote Gadchiroli villages. Seven Maoists carrying ₹71 lakh reward were neutralized recently. National-led governance is being used as a counter-insurgency strategy."
-  },
-  {
-    "label": "May 1, 2026",
-    "category": "National",
-    "headline": "Election Commission move faces judicial scrutiny in Bengal",
-    "summary": "Calcutta High Court examined EC's decision to deploy Central government and PSU staff for West Bengal vote counting. EC defended the move as a transparency measure. The case highlights electoral integrity, institutional authority, and democratic process management."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "Geopolitical",
-    "headline": "Iran warns of possible renewed conflict with U.S.",
-    "summary": "Iranian military leadership stated that renewed conflict with the U.S. remains likely despite the April ceasefire. The U.S. also warned shipping firms against making payments to Iran for safe passage through the Strait of Hormuz. Keywords: West Asia crisis, maritime chokepoint, energy security, naval pressure, nuclear negotiations. SSB angle: Strategic sea lanes, global oil routes, military diplomacy."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "National",
-    "headline": "Supreme Court upholds Election Commission authority in Bengal",
-    "summary": "Supreme Court rejected allegations that Central government staff deployed during West Bengal vote counting were politically biased. Court clarified that officers on election duty function under Election Commission authority, not political allegiance. Keywords: Electoral integrity, constitutional institutions, federal governance, democratic accountability. SSB angle: Faith in institutions, constitutional neutrality."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "Social",
-    "headline": "Opposition bloc prepares strategy on women’s reservation",
-    "summary": "INDIA bloc plans post-election discussions on women's reservation after the Constitution (131st Amendment) Bill, 2026 faced resistance in Parliament. Debate continues over linking reservation with delimitation and Lok Sabha expansion. Keywords: Gender inclusion, constitutional reform, political representation. SSB angle: Inclusive leadership, women empowerment in nation-building."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "Environment",
-    "headline": "NGT directs southern States to accelerate clean air action",
-    "summary": "National Green Tribunal ordered southern States and Puducherry to ensure time-bound implementation of State Action Plans under NCAP. Karnataka had received ₹597.54 crore, but fund utilisation was initially low. Keywords: Air pollution, governance efficiency, environmental accountability, public health. SSB angle: Sustainable development, administrative execution."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "National",
-    "headline": "Jammu-Srinagar Vande Bharat begins commercial operations",
-    "summary": "India's first direct Vande Bharat between Jammu and Srinagar began operations, reducing travel time from 12–24 hours to under 5 hours across 272 km. Over 1,900 passengers travelled on the first day. Keywords: Border connectivity, strategic National, tourism, economic integration. SSB angle: Nation integration, logistics in sensitive regions."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "National",
-    "headline": "Madras High Court directs inclusion of Ambedkar in school curriculum",
-    "summary": "Madras High Court directed Tamil Nadu to introduce structured lessons on Dr. B.R. Ambedkar from Classes III–X, focusing on Constitution, equality, justice, liberty and fraternity. Keywords: Constitutional literacy, social justice, education reform. SSB angle: Value system, constitutional awareness, ethical leadership."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "Defence",
-    "headline": "IED blast kills Chhattisgarh police personnel during anti-insurgency operation",
-    "summary": "Four District Reserve Guard personnel were killed in Kanker while disposing explosive material during a search operation. The incident highlights continuing Maoist threats in central India. Keywords: Counter-insurgency, Defence, IED threat, field operations. SSB angle: Courage, risk management, operational preparedness."
-  },
-  {
-    "label": "May 3, 2026",
-    "category": "Sports",
-    "headline": "Chennai Super Kings register dominant win over Mumbai Indians",
-    "summary": "CSK delivered a commanding performance led by Ruturaj Gaikwad against MI. The match highlighted tactical planning, execution under pressure, and team coordination. Keywords: Competitive spirit, tactical leadership, pressure performance. SSB angle: Teamwork, resilience, situational leadership."
-  },
-  {
-    "label": "May 4, 2026",
-    "category": "Geopolitical",
-    "headline": "Iran gives U.S. strategic choice amid stalled peace talks",
-    "summary": "Iran’s Revolutionary Guards stated the U.S. must choose between military escalation or a diplomatic deal. Tehran submitted a 14-point peace proposal focused on reopening the Strait of Hormuz and ending naval blockades. Keywords: West Asia conflict, maritime security, energy routes, diplomacy, strategic deterrence. SSB angle: Global military balance, crisis diplomacy."
-  },
-  {
-    "label": "May 4, 2026",
-    "category": "Geopolitical",
-    "headline": "Nepal raises Lipulekh sovereignty issue before India visit",
-    "summary": "Nepal reiterated claims over the Kalapani-Limpiyadhura-Lipulekh region ahead of India's Foreign Secretary’s visit. India rejected the claims, citing lack of historical basis. Keywords: Border diplomacy, Himalayan strategy, India-Nepal relations, territorial dispute. SSB angle: Border sensitivity, strategic geography."
-  },
-  {
-    "label": "May 4, 2026",
-    "category": "National",
-    "headline": "Election Commission deploys enhanced observers for Assembly counting",
-    "summary": "The Election Commission announced extra counting and police observers across Assam, Kerala, Tamil Nadu, West Bengal and Puducherry to ensure transparent results. West Bengal alone received 165 additional counting observers. Keywords: Electoral transparency, constitutional institutions, democratic governance. SSB angle: Institutional trust, constitutional awareness."
-  },
-  {
-    "label": "May 4, 2026",
-    "category": "Technology",
-    "headline": "Google DeepMind says AI skilling will become essential",
-    "summary": "Google DeepMind leadership stated AI is rapidly transforming software, media and prediction systems. AI skilling was highlighted as essential for future professions amid safety and transparency concerns. Keywords: Artificial Intelligence, future workforce, digital transformation, innovation. SSB angle: Adaptability, technology leadership."
-  },
-  {
-    "label": "May 4, 2026",
-    "category": "Social",
-    "headline": "Jharkhand seeks Sarna religion code in Census 2027",
-    "summary": "Jharkhand CM Hemant Soren wrote to the President and PM demanding a separate Sarna religion code for tribal communities in Census 2027. Around 50 lakh citizens across 21 States had identified as Sarna earlier. Keywords: Tribal identity, constitutional rights, census reform, inclusive governance. SSB angle: Social inclusion, constitutional sensitivity."
-  },
-  {
-    "label": "May 4, 2026",
+    "label": "May 20, 2026",
     "category": "Economy",
-    "headline": "Delhi approves ₹48,204 crore Metro Phase V expansion",
-    "summary": "Delhi government announced a 97-km metro expansion with 7 corridors and 65 stations under Phase V(B), targeted partly for completion by 2029. The project aims to improve urban connectivity and economic productivity. Keywords: Infrastructure investment, public transport, urban economy, capital expenditure. SSB angle: Nation-building, infrastructure planning."
+    "headline": "New Income Tax Act, 2025 is more taxpayer-friendly, says Chief Commissioner of Income Tax",
+    "summary": "Chief Commissioner of Income Tax, Madurai, V. Sreelekha, addressing an outreach programme on new Income Tax Act, 2025 in Madurai on Wednesday, stated the new Income Tax Act, 2025 is more taxpayer-friendly.",
+    "gd_angle": "Fiscal policy, economic governance, financial literacy."
   },
   {
-    "label": "May 4, 2026",
-    "category": "Geopolitical",
-    "headline": "India-Nepal border trade tensions rise over customs enforcement",
-    "summary": "Nepal’s stricter customs enforcement on goods above 100 Nepali rupees caused disruptions in cross-border trade. India remains engaged diplomatically as border communities report economic strain. Bilateral trade with India forms 63.01% of Nepal’s total trade worth $8.02 billion. Keywords: Border economics, trade diplomacy, regional stability. SSB angle: Neighbourhood policy, economic security."
+    "label": "May 20, 2026",
+    "category": "Economy",
+    "headline": "The Hindu Maharashtra Infrastructure Conclave to be held in Mumbai on May 22",
+    "summary": "The Hindu Group is organising the Maharashtra Infrastructure Conclave 2026, a high-impact platform bringing together policymakers, industry leaders, urban planners, infrastructure experts, investors, and developers to discuss the opportunities and challenges shaping Maharashtra’s next growth story.",
+    "gd_angle": "Economic development, urban planning, investment climate."
   },
   {
-    "label": "May 4, 2026",
-    "category": "Environment",
-    "headline": "Great Nicobar project faces renewed parliamentary scrutiny demand",
-    "summary": "Opposition demanded parliamentary review of the Great Nicobar Island Development Project citing ecological and strategic concerns. The project remains critical for maritime presence in the Indian Ocean region. Keywords: Environmental impact, island development, strategic infrastructure, sustainability. SSB angle: Development vs conservation."
+    "label": "May 20, 2026",
+    "category": "Economy",
+    "headline": "KTR praises Foxconn facility, says MoU inked during BRS regime yielding thousands of jobs",
+    "summary": "While $500 million (around ₹4,100 crore) was initial investment committed, when the project broke ground in May 2023, it since has been raised to ₹5,000 crore. Foxconn had increased its target investment to $550 million (around ₹4,800 crore). Over ₹3,000 crore has been deployed on the facility, which includes the 1.4 million sq ft factory at Kongara Kalan, Telangana. The MoU inked during the BRS regime is yielding thousands of jobs.",
+    "gd_angle": "Economic growth, foreign investment, strategic manufacturing."
+  },
+  {
+    "label": "May 20, 2026",
+    "category": "Economy",
+    "headline": "Karnataka Bank’s annual net profit up by 3%",
+    "summary": "The board of directors approved the audited annual financial results for the quarter and full year which ended on March 31, 2026. Karnataka Bank's annual net profit was up by 3% compared to the previous fiscal year.",
+    "gd_angle": "Financial sector stability, economic indicators."
+  },
+  {
+    "label": "May 20, 2026",
+    "category": "Economy",
+    "headline": "Rules for new rural employment scheme to be issued soon",
+    "summary": "Rules governing the new rural employment guarantee scheme, the Viksit Bharat – Guarantee for Rozgar and Ajeevika Mission (Gramin), which is scheduled to come into force from July 1, will be released by the government in the next few days, officials of the Union Ministry of Rural Development informed a Parliamentary Standing Committee on Wednesday.",
+    "gd_angle": "Rural development, social security, policy implementation."
+  },
+  {
+    "label": "May 20, 2026",
+    "category": "Geopolitics",
+    "headline": "Global and National Updates: Ebola, PM Diplomacy, Geopolitics, and Constitutional Matters",
+    "summary": "The WHO has issued its highest-level alert over the Ebola outbreak in Central Africa. PM Modi held meetings with Giorgia Meloni. Vladimir Putin's high-stakes Beijing visit and the Supreme Court’s remarks backing caste enumeration in Census 2027 were also highlighted.",
+    "gd_angle": "Global health security, international relations, constitutional discourse."
+  },
+  {
+    "label": "May 20, 2026",
+    "category": "Economy",
+    "headline": "Telangana gets ₹1,420 cr. central aid for projects in Warangal, Karimnagar and Khammam",
+    "summary": "The Ministry of Housing and Urban Affairs’ (MoHUA) first National Apex Committee (NAC) for the Urban Challenge Fund (UCF) has, in principle, approved three projects across 26 urban local bodies in Telangana with a total outlay of ₹5,681.6 crore, with central aid amounting to ₹1,420 crore. Projects include a ₹5,681.6 crore underground sewerage network in Warangal and a ₹840 crore project in Karimnagar covering solid waste management, riverfront development, stormwater drains, roads, and a skywalk.",
+    "gd_angle": "Urban development, infrastructure funding, sustainable cities."
   }
 ]
