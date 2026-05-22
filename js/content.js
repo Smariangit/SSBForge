@@ -1,14 +1,14 @@
 // content.js — SSBForge Content Registry
 
-const FREE_LIMIT = { tat: 5, wat: 30, ppdt: 3, lecturette: 10, oir: 1, srt: 15 };
+const FREE_LIMIT = { tat: 5, wat: 30, ppdt: 3, lecturette: 10, srt: 15, gpe: 1 };
 
 const MODULES = {
   tat: {
     label: 'TAT — Thematic Apperception Test',
-    timePerSlide: 30,
+    timePerSlide: 240,
     type: 'image',
     indexFile: 'content/tat/index.json',
-    instructions: 'You will see an image for 30 seconds. Write a complete story with: (1) Background leading up to the scene, (2) What is happening NOW, (3) How it will END. Your hero must have strong OLQs. The timer auto-advances to the next image.'
+    instructions: 'You will see an image and have 4 minutes to write your story. Write a complete story with: (1) Background leading up to the scene, (2) What is happening NOW, (3) How it will END. Your hero must have strong OLQs. The timer auto-advances to the next image.'
   },
   wat: {
     label: 'WAT — Word Association Test',
@@ -38,23 +38,100 @@ const MODULES = {
     indexFile: 'content/srt/index.json',
     instructions: 'A situation will be shown for 30 seconds. Write your immediate, instinctive reaction — what you would actually do — in a few words. Responses must be practical, moral, and show initiative. Speed is critical: roughly 30 seconds per situation. Do not overthink.'
   },
-  oir: {
-    label: 'OIR — Officer Intelligence Rating',
-    timePerSlide: null,
+  gpe: {
+    label: 'GPE — Group Planning Exercise',
+    timePerSlide: 600,
     type: 'image',
-    indexFile: 'content/oir/index.json',
-    instructions: 'Each OIR paper has two parts: Verbal and Non-Verbal reasoning. Total time: 17 minutes per paper. Answer as many questions as possible in order. Do not skip — go sequentially. The full-paper timer starts when you press Start.'
+    indexFile: 'content/gpe/index.json',
+    instructions: 'Study the GPE image carefully. Instructions for the exercise will appear here. You have 10 minutes to write a practical, time-bound group plan.'
   }
 };
 
 async function loadContentIndex(module) {
-  try {
-    const resp = await fetch(MODULES[module].indexFile);
-    if (!resp.ok) throw new Error('No index');
-    return await resp.json();
-  } catch {
-    return getSampleContent(module);
+  const candidates = getIndexCandidates(module);
+  let lastError = null;
+
+  for (const indexFile of candidates) {
+    try {
+      const separator = indexFile.includes('?') ? '&' : '?';
+      const resp = await fetch(indexFile + separator + 'v=' + Date.now(), { cache: 'no-store' });
+      if (!resp.ok) throw new Error('No index at ' + indexFile);
+      const data = await resp.json();
+      return normalizeContentItems(data, module);
+    } catch (err) {
+      lastError = err;
+    }
   }
+
+  const embedded = window.PRACTICE_CONTENT_DATA && window.PRACTICE_CONTENT_DATA[module];
+  const embeddedItems = Array.isArray(embedded)
+    ? embedded
+    : (embedded && Array.isArray(embedded.value) ? embedded.value : []);
+
+  if (embeddedItems.length) {
+    console.warn('Using embedded content fallback for ' + module + ':', lastError);
+    return normalizeContentItems(embeddedItems, module);
+  }
+
+  console.warn('Using sample content for ' + module + ':', lastError);
+  return normalizeContentItems(getSampleContent(module), module);
+}
+
+function getIndexCandidates(module) {
+  const configured = MODULES[module].indexFile;
+  const upper = 'content/' + module.toUpperCase() + '/index.json';
+  const title = 'content/' + module.charAt(0).toUpperCase() + module.slice(1) + '/index.json';
+  return [...new Set([configured, upper, title])];
+}
+
+function normalizeContentItems(data, module) {
+  const list = Array.isArray(data)
+    ? data
+    : (data && Array.isArray(data.value) ? data.value : []);
+  const mod = MODULES[module];
+  const freeLimit = FREE_LIMIT[module] || list.length;
+
+  return list.map((raw, index) => {
+    const item = typeof raw === 'string' ? stringToItem(raw, module, index) : { ...raw };
+    const number = index + 1;
+
+    if (!item.id) item.id = module + '_' + number;
+    if (item.free == null) item.free = index < freeLimit;
+
+    if (mod.type === 'text-word') {
+      item.word = item.word || item.label || item.topic || item.situation || '';
+      item.label = item.label || item.word || ('Word ' + number);
+    } else if (mod.type === 'text-topic') {
+      item.topic = item.topic || item.label || item.word || item.situation || '';
+      item.label = item.label || ('Topic ' + number);
+    } else if (mod.type === 'text-situation') {
+      item.situation = item.situation || item.label || item.topic || item.word || '';
+      item.label = item.label || ('Situation ' + number);
+    } else if (mod.type === 'image') {
+      item.label = item.label || ('Picture ' + number);
+      item.alt = item.alt || item.label;
+      item.src = normalizeImageSrc(item.src, module, number);
+    }
+
+    return item;
+  });
+}
+
+
+function normalizeImageSrc(src, module, number) {
+  if (src && src.includes('/')) return src;
+  if (src) return 'content/' + module + '/' + src;
+
+  const prefix = module + '_';
+  return 'content/' + module + '/' + prefix + String(number).padStart(3, '0') + '.jpg';
+}
+function stringToItem(value, module, index) {
+  const number = index + 1;
+  if (module === 'wat') return { id: 'wat_' + number, label: value, word: value };
+  if (module === 'lecturette') return { id: 'lec_' + number, label: value, topic: value };
+  if (module === 'srt') return { id: 'srt_' + number, label: 'Situation ' + number, situation: value };
+  if (module === 'gpe') return { id: 'gpe_' + number, label: 'GPE ' + number, src: value, timeSeconds: 600 };
+  return { id: module + '_' + number, label: value };
 }
 
 function getSampleContent(module) {
@@ -134,11 +211,32 @@ function getSampleContent(module) {
         "You are in charge of supplies. You find 20% of rations are spoiled and troops are hungry.",
         "During a flood relief operation, locals are fighting over relief material.",
       ].map((s, i) => ({ id: 'srt_' + (i+1), label: 'Situation ' + (i+1), situation: s, free: i < 15 }));
-    case 'oir':
+    case 'gpe':
       return [
-        { id: 'oir_1', label: 'OIR Paper 1', src: 'content/oir/oir_paper_1.jpg', free: true, timeSeconds: 1020 },
-        { id: 'oir_2', label: 'OIR Paper 2', src: 'content/oir/oir_paper_2.jpg', free: false, timeSeconds: 1020 },
-        { id: 'oir_3', label: 'OIR Paper 3', src: 'content/oir/oir_paper_3.jpg', free: false, timeSeconds: 1020 },
+        {
+          id: 'gpe_001',
+          label: 'GPE 1',
+          src: 'content/gpe/gpe_001.jpg',
+          instructions: 'You are a group of 6 students from your school going on an educational excursion in a rural area. While travelling, you encounter multiple emergency situations shown in the map. The map scale is 1 cm = 1 km. Current time is 11:30 AM. Your group has one vehicle, ropes, first-aid material, and support from nearby villagers.\n\nSituation Details:\n1. A major flood has damaged the road bridge and disrupted movement across the river.\n2. A nearby road accident has seriously injured a civilian who must be shifted to the hospital immediately.\n3. Intelligence inputs reveal that terrorists are planning to attack an army convoy passing through the area at 1:00 PM.\n4. A school building near the flooded region has stranded civilians and children waiting for rescue.\n5. Railway communication is disturbed and an incoming train may cross the damaged rail bridge.\n6. One member of your group is the leader whose mother is critically ill at home, and he must reach home by 12:30 PM.\n\nAs a group, identify all problems, assign priorities, calculate time and distance using the given scale, divide manpower and resources effectively, coordinate with police/army/railway/local administration, rescue injured civilians, prevent further casualties, and ensure maximum tasks are completed practically within the available time.',
+          free: true,
+          timeSeconds: 600
+        },
+        {
+          id: 'gpe_002',
+          label: 'GPE 2',
+          src: 'content/gpe/gpe_002.jpg',
+          instructions: 'Instructions for this GPE will be added here. Study the image, identify all problems, prioritize them, divide resources, and write a practical group plan.',
+          free: false,
+          timeSeconds: 600
+        },
+        {
+          id: 'gpe_003',
+          label: 'GPE 3',
+          src: 'content/gpe/gpe_003.jpg',
+          instructions: 'Instructions for this GPE will be added here. Study the image, identify all problems, prioritize them, divide resources, and write a practical group plan.',
+          free: false,
+          timeSeconds: 600
+        }
       ];
     default:
       return [];
@@ -150,12 +248,11 @@ function filterContent(items, module) {
     return items.map(item => ({ ...item, locked: false }));
   }
 
-  const limit = FREE_LIMIT[module] || 5;
-
-  return items.map((item, i) => ({
+  return items.map(item => ({
     ...item,
-    locked: i >= limit
+    locked: item.free === false
   }));
 }
 
 window.ContentLoader = { loadContentIndex, getSampleContent, filterContent, MODULES, FREE_LIMIT };
+
