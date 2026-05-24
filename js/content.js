@@ -111,6 +111,8 @@ function normalizeContentItems(data, module) {
       item.label = item.label || ('Picture ' + number);
       item.alt = item.alt || item.label;
       item.src = normalizeImageSrc(item.src, module, number);
+      // Preserve per-item instructions (e.g. GPE scenario text)
+      item.instructions = item.instructions || null;
     }
 
     return item;
